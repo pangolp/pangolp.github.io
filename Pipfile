@@ -7,6 +7,9 @@ name = "pypi"
 pelican = "*"
 markdown = "*"
 
+[scripts]
+runserver = "invoke livereload"
+
 [dev-packages]
 invoke = "*"
 livereload = "*"

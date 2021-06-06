@@ -2,6 +2,7 @@ title: Cómo obtener registros libres en una tabla
 description: Con este sencillo scripts, podrás encontrar registros libres, dentro de una tabla y poder utilizarlos si lo crees conveniente para tu proyecto.
 date: 2021.06.04
 authors: Pagani Walter, George Ronconi
+summary: Con este método, podrías encontrar registros libres
 category: Base de datos
 
 En algunas ocasiones, necesitamos obtener o conocer registros cuyos valores no están siendo ocupados.

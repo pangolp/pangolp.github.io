@@ -2,6 +2,7 @@ title: Hablemos de ChromieCraft
 description: En este artículo, hablamos del servidor oficial de AzerothCore
 date: 2021.06.06
 authors: Pagani Walter
+summary: Esta es mi opinión sobre el servidor de AzerothCore -> CromieCraft
 category: Servidores de World of Warcraft
 
 ![Logo]({static}/images/chromie.png)

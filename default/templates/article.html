@@ -4,14 +4,14 @@
 {% block seo %}
     <meta content="{{ SITENAME }}" property="og:title">
     <meta content="{{article.description}}" property="og:description">
-    <meta name="tags" content="{{tag}}">
+    <meta property="og:tags" content="{{tag}}">
 {% endblock seo %}
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col my-3">
             <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-            <time class="published" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+            <p><i class="far fa-clock"></i> <strong>Publicado:</strong> {{ article.locale_date }} - <strong>Categoria:</strong> {{ article.category }}</p>
             <div class="my-3">{{ article.content }}</div>
         </div>
     </div>

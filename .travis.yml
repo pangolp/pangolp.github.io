@@ -10,3 +10,14 @@ install:
   - pipenv install
 
 script: pipenv run pelican -s publishconf.py -t default content
+
+deploy:
+  provider: pages
+  strategy: git
+  repo: pangolp/pangolp.github.io
+  target_branch: gh-page
+  local_dir: output
+  token: $TOKEN
+  edge: true
+  on:
+    branch: master

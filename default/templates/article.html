@@ -11,7 +11,9 @@
     <div class="row">
         <div class="col my-3">
             <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-            <p><i class="far fa-clock"></i> <strong>Publicado:</strong> {{ article.locale_date }} - <strong>Categoria:</strong> {{ article.category }}</p>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> {{ article.locale_date }} - <strong>Categoria:</strong> {{ article.category }}</div>
+            <div><i class="fas fa-tags"></i> {% for tag in article.tags %} <a href="https://twitter.com/hashtag/{{ tag }}" target="_blank">#{{ tag }}</a>{% endfor %}</div>
+            <div>{% if article.repository %}<i class="fab fa-github"></i> <a href="{{ article.repository }}" target="_blank">{{ article.repository }}</a> {% endif %}</div>
             <div class="my-3">{{ article.content }}</div>
         </div>
     </div>

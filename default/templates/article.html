@@ -20,7 +20,7 @@
         <div class="col my-3">
             <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
             <time class="published" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-            <div>{{ article.content }}</div>
+            <div class="my-3">{{ article.content }}</div>
         </div>
     </div>
 </div>
@@ -30,6 +30,7 @@
     $(document).ready(function () {
         $("table").attr("class", "table table-sm text-center");
         $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
     });
 </script>
 {% endblock %}

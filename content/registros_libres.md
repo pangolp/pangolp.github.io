@@ -4,6 +4,7 @@ date: 2021.06.04
 authors: Pagani Walter, George Ronconi
 summary: Con este método, podrías encontrar registros libres
 category: Base de datos
+tags: basededatos, sql, azerothcore
 
 En algunas ocasiones, necesitamos obtener o conocer registros cuyos valores no están siendo ocupados.
 

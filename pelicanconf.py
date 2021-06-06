@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+import datetime
+
 AUTHOR = 'Pagani Walter'
 SITENAME = 'El blog de Pango | Stevej'
-SITEURL = ''
+SITEURL = 'https://pangolp.github.io'
 
 PATH = 'content'
 
@@ -32,3 +34,12 @@ DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+THEME = 'default'
+
+MENU_ITEMS_LEFT = (
+    ('AzerothCore', 'https://www.azerothcore.org/'),
+    ('BlizzCMS', 'https://wow-cms.com/'),
+)
+
+DATE = datetime.datetime.now().year

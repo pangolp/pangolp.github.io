@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ page.lang }}{% endblock %}
+{% block title %}{{ SITENAME }} - {{ page.title|striptags }}{% endblock %}
+{% block seo %}
+    <meta content="{{ SITENAME }}" property="og:title">
+    <meta content="{{ page.description }}" property="og:description">
+    <meta property="og:tags" content="{{page.tags}}">
+{% endblock seo %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col my-5">
+                <h1>{{ page.title }}</h1>
+                <div><i class="fas fa-tags"></i> {% for tag in page.tags %} <a href="https://twitter.com/hashtag/{{ tag }}" target="_blank">#{{ tag }}</a>{% endfor %}</div>
+                <div>{% if page.repository %}<i class="fab fa-github"></i> <a href="{{ page.repository }}" target="_blank">{{ page.repository }}</a> {% endif %}</div>
+                <div class="my-3">{{ page.content }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+{% endblock %}

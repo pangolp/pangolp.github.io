@@ -6,10 +6,7 @@ summary: Una buena opción, para tu servidor de World of Warcraft
 category: CMS
 tags: wow-cms, blizzcms, cms, wowcms, blizzcms
 
-Sitio web: https://wow-cms.com/
-Discord: https://discord.wow-cms.com/
-Repositorio: https://github.com/wow-cms/
-Ko-fi: https://ko-fi.com/wowcms
+![wowcms]({static}/images/wowcms.png)
 
 ### WOW-CMS
 
@@ -34,3 +31,8 @@ El principal desafío que tiene el CMS, al igual que casi todos los CMS conocido
 Es por ese motivo, que el CMS se encuentra actualmente, en el desarrollo de una librería, que le permita solucionar este problema, de modo tal, que ante cambios futuros, sea la librería la que se actualice, y no el CMS. Pudiendo de esa forma, seguir funcionando sin tener que modificar quizás su funcionamiento, solo actualizando la librería. La mejor opción seria, que los emuladores, contaran con una api, pero es algo, que no todos los emuladores disponen.
 
 Los invito a probar el CMS, y a que puedan sacar sus propias conclusiones.
+
+- [Sitio web](https://wow-cms.com/)
+- [Discord](https://discord.wow-cms.com/)
+- [Repositorio](https://github.com/wow-cms/)
+- [Ko-fi](https://ko-fi.com/wowcms)

@@ -2,9 +2,9 @@
 {% block html_lang %}{{ article.lang }}{% endblock %}
 {% block title %}{{ SITENAME }} - {{ article.title|striptags  }}{% endblock %}
 {% block seo %}
-    <meta content="{{ SITENAME }}" property="og:title">
-    <meta content="{{article.description}}" property="og:description">
-    <meta property="og:tags" content="{{tag}}">
+    <meta content="{{ article.title }}" property="og:title">
+    <meta content="{{ article.description }}" property="og:description">
+    <meta property="og:tags" content="{{ tags }}">
 {% endblock seo %}
 {% block content %}
 <div class="container">

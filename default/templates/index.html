@@ -20,7 +20,7 @@
             {% for article in articles_page.object_list %}
                 <div class="my-5">
                     <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-                    <h6><i class="far fa-clock"></i> {{ article.locale_date }} - <i class="fas fa-user-graduate"></i> {% for author in article.authors %}<a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> - {% endfor %}</h6>
+                    <h6><i class="far fa-clock"></i> {{ article.locale_date }} - <i class="fas fa-user-graduate"></i> {% for author in article.authors %}{% if article.authors[-1] == author %}<a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% else %} <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> - {% endif %}{% endfor %}</h6>
                     <div class="article__summary">{{article.summary}}</div>
                 </div>
             {% endfor %}

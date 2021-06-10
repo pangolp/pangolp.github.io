@@ -4,7 +4,7 @@
 {% block seo %}
     <meta content="{{ article.title }}" property="og:title">
     <meta content="{{ article.description }}" property="og:description">
-    <meta property="og:tags" content="{{ tags }}">
+    <meta property="og:tags" content="{% for tag in article.tags %}{% if article.tags[-1] == tag %}{{ tag }}{% else %}{{ tag }}, {% endif %}{% endfor %}">
 {% endblock seo %}
 {% block content %}
 <div class="container">

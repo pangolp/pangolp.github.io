@@ -2,9 +2,9 @@
 {% block html_lang %}{{ page.lang }}{% endblock %}
 {% block title %}{{ SITENAME }} - {{ page.title|striptags }}{% endblock %}
 {% block seo %}
-    <meta content="{{ SITENAME }}" property="og:title">
+    <meta content="{{ page.title }}" property="og:title">
     <meta content="{{ page.description }}" property="og:description">
-    <meta property="og:tags" content="{{page.tags}}">
+    <meta property="og:tags" content="{% for tag in page.tags %}{% if page.tags[-1] == tag %}{{ tag }}{% else %}{{ tag }}, {% endif %}{% endfor %}">
 {% endblock seo %}
 {% block content %}
     <div class="container">

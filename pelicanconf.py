@@ -40,6 +40,9 @@ THEME = 'default'
 MENU_ITEMS_LEFT = (
     ('AzerothCore', 'https://www.azerothcore.org/'),
     ('BlizzCMS', 'https://wow-cms.com/'),
+    ('TrinityCore', 'https://www.trinitycore.org/'),
+    ('ChromieCraft', 'https://www.chromiecraft.com/'),
+    ('LinuxGSM', 'https://linuxgsm.com/')
 )
 
 DATE = datetime.datetime.now().year

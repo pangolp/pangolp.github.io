@@ -27,6 +27,10 @@ a {
     max-height: 2.375rem;
 }
 
+.nav-link {
+    color: #FFFFFF !important;
+}
+
 #welcome {
     background-color: #064CDB !important;
     color: rgb(255, 255, 255);
@@ -55,7 +59,7 @@ body {
 }
 
 #content {
-    padding: 5rem 0;
+    padding: 1rem 0;
 }
 
 .highlight {
@@ -68,4 +72,15 @@ body {
 
 .article__summary {
     font-size: 1.2rem;
+}
+
+header {
+    background: #C2C4C3 !important;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.card {
+    border: 2px solid #000000;
+    border-radius: 30px;
 }

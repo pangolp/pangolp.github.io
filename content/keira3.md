@@ -2,7 +2,7 @@ title: Keira3 - Editor de bases de datos multiplataforma para AzerothCore
 description: En este post, hablaremos sobre el editor llamado keira3, es un proyecto open source, con el cual puedes editar varias de las bases de datos de AzerothCore. Permitiéndote no solo ingresar nuevos valores, editarlos, eliminarlos, sino que también, obtener el SQL correspondiente que se ejecuta, para dicha acción.
 date: 2021.06.06
 authors: Pagani Walter
-summary: Una buena alternativa, por si estas aprendiendo o no sabes SQL y queres editar las tablas del emulador de AzerothCore
+summary: En este post, hablaremos sobre el editor llamado keira3, es un proyecto open source, con el cual puedes editar varias de las bases de datos de AzerothCore. Permitiéndote no solo ingresar nuevos valores, editarlos, eliminarlos, sino que también, obtener el SQL correspondiente que se ejecuta, para dicha acción.
 category: Software
 tags: basededatos, sql, azerothcore, keira3
 repository: https://github.com/azerothcore/Keira3

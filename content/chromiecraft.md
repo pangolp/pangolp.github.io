@@ -2,7 +2,7 @@ title: Hablemos de ChromieCraft
 description: En este post, vamos a tocar el tema de ChromieCraft, para muchos, un servidor más de la 3.3.5ª con AzerothCore, para mí, es algo totalmente diferente, y que puede llegar a prometer mucho a futuro, si la comunidad lo apoya como lo está haciendo hasta ahora.
 date: 2021.06.06
 authors: Pagani Walter
-summary: Esta es mi opinión sobre el servidor de AzerothCore -> CromieCraft
+summary: En este post, vamos a tocar el tema de ChromieCraft, para muchos, un servidor más de la 3.3.5ª con AzerothCore, para mí, es algo totalmente diferente, y que puede llegar a prometer mucho a futuro, si la comunidad lo apoya como lo está haciendo hasta ahora.
 category: Servidores de World of Warcraft
 tags: chromiecraft, azerothcore, server335
 repository: https://github.com/chromiecraft/

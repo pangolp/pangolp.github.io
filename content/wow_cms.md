@@ -2,7 +2,7 @@ title: WOW-CMS
 description: Hablemos sobre uno de los cms, que te permiten crear una web para tu servidor de World of Warcraft. En realidad, no es solo una web, es un sistema con noticias, registro, login, tienda y mucho más.
 date: 2021.06.08
 authors: Pagani Walter
-summary: Una buena opción, para tu servidor de World of Warcraft
+summary: Hablemos sobre uno de los cms, que te permiten crear una web para tu servidor de World of Warcraft. En realidad, no es solo una web, es un sistema con noticias, registro, login, tienda y mucho más.
 category: CMS
 tags: wow-cms, blizzcms, cms, wowcms, blizzcms
 

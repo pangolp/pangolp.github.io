@@ -1,8 +1,8 @@
 title: Estándares de SQL
-description: En este artículo, traducido de la wiki oficial de AzerothCore, trataremos de abarcar, temas relacionados a las buenas prácticas del lenguaje SQL. Con ejemplos sobre las tablas del emulador, pero que pueden ser modificadas, para utilizadas en otras tablas.
+description: En este artículo, traducido de la wiki oficial de AzerothCore, trataremos de abarcar, temas relacionados a las buenas prácticas del lenguaje SQL. Con ejemplos sobre las tablas del emulador, pero que pueden ser modificadas, para utilizarlas en otras tablas.
 date: 2021.06.07
 authors: Pagani Walter
-summary: Buenas prácticas y estándares del lenguaje SQL
+summary: En este artículo, traducido de la wiki oficial de AzerothCore, trataremos de abarcar, temas relacionados a las buenas prácticas del lenguaje SQL. Con ejemplos sobre las tablas del emulador, pero que pueden ser modificadas, para utilizarlas en otras tablas.
 category: base de datos
 tags: basededatos, azerothcore, sql, SQLStandards
 

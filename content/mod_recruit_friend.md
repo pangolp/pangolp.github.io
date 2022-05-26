@@ -2,7 +2,7 @@ title: mod-recruit-friend
 description: Con este módulo, podrás reclutar un amigo ingame a través de un comando, y obtener todos los beneficios blizzlike del emulador. Compatible con el emulador de AzerothCore, pero quizás pueda ser adaptado para otros emuladores. También tiene un comando de reset sin costo alguno.
 authors: Pagani Walter
 date: 2021.06.07
-summary: La mejor opción para reclutar un amigo ingame.
+summary: Con este módulo, podrás reclutar un amigo ingame a través de un comando, y obtener todos los beneficios blizzlike del emulador. Compatible con el emulador de AzerothCore, pero quizás pueda ser adaptado para otros emuladores. También tiene un comando de reset sin costo alguno.
 category: Módulos
 tags: azerothcore, server335, mod-recruit-friend
 repository: https://github.com/pangolp/mod-recruit-friend

@@ -1,8 +1,8 @@
 title: Cómo probar un Pull Request
-description: En este post, hablamos sobre cómo realizar pruebas de las solicitudes de cambios (PR – Pull request), como también así, de la importancia que la misma tiene para cualquier proyecto open source.
+description: En este post, hablamos sobre cómo realizar pruebas de las solicitudes de cambios (PR – Pull request), como también así, de la importancia que la misma tiene para cualquier proyecto open source. Cualquier comunidad de código libre, que acepte peticiones de cambios de personas ajenas al proyecto, tiene esta herramienta a disposición.
 date: 2021.06.10
 authors: Pagani Walter
-summary: Hablemos sobre los Pull Request
+summary: En este post, hablamos sobre cómo realizar pruebas de las solicitudes de cambios (PR – Pull request), como también así, de la importancia que la misma tiene para cualquier proyecto open source. Cualquier comunidad de código libre, que acepte peticiones de cambios de personas ajenas al proyecto, tiene esta herramienta a disposición.
 category: Github
 tags: azerothcore, github, pullrequest, testing
 

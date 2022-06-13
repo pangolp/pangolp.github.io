@@ -7,7 +7,7 @@ category: Emuladores de World of Warcraft
 tags: azerothcore, server335, linux
 repository: https://github.com/azerothcore/azerothcore-wotlk
 
-## ¿Qué necesito instalar?
+# ¿Qué necesito instalar?
 
 Antes que nada, debemos saber, que al día de la fecha: Domingo 12 de Junio del 2022, aun el emulador, no soporta versiones de OpenSSL 3.x. Por lo que no podemos usar la versión de Ubuntu 22.04, dado que esta, por defecto en sus repositorios, viene con dicha versión de OpenSSL. Sin embargo, podríamos usar esta versión de Ubuntu, es decir, la 22.04, desinstalar OpenSSL que viene por defecto / no instarlo, y luego descargar una versión del código de la versión 1.1.x, y compilarlo nosotros mismo. Mi recomendación, utilicen una versión de Ubuntu anterior, como puede ser la versión 21.10 (la cual no esta tan desactualizada).
 
@@ -39,8 +39,7 @@ sudo apt-get update && sudo apt-get install git cmake make gcc g++ clang default
 
 </details>
 
-
-## Clonar del repositorio y compilación
+# Clonar del repositorio y compilación
 
 En este ejemplo práctico, voy a hacer uso de la consola. Y tomando la información de la wiki, vemos que tenemos 3 formas de clonar el repositorio.
 
@@ -75,4 +74,4 @@ git clone https://github.com/azerothcore/azerothcore-wotlk.git azerothcore
 
 </details>
 
-Una vez realizada la clonación, comienza la compilación.
+<p>Una vez realizada la clonación, comienza la compilación.</p>

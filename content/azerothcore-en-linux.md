@@ -7,7 +7,7 @@ category: Emuladores de World of Warcraft
 tags: azerothcore, server335, linux
 repository: https://github.com/azerothcore/azerothcore-wotlk
 
-# ¿Qué necesito instalar?
+### ¿Qué necesito instalar?
 
 Antes que nada, debemos saber, que al día de la fecha: Domingo 12 de Junio del 2022, aun el emulador, no soporta versiones de OpenSSL 3.x. Por lo que no podemos usar la versión de Ubuntu 22.04, dado que esta, por defecto en sus repositorios, viene con dicha versión de OpenSSL. Sin embargo, podríamos usar esta versión de Ubuntu, es decir, la 22.04, desinstalar OpenSSL que viene por defecto / no instarlo, y luego descargar una versión del código de la versión 1.1.x, y compilarlo nosotros mismo. Mi recomendación, utilicen una versión de Ubuntu anterior, como puede ser la versión 21.10 (la cual no esta tan desactualizada).
 
@@ -38,8 +38,9 @@ sudo apt-get update && sudo apt-get install git cmake make gcc g++ clang default
 ```
 
 </details>
+<br>
 
-# Clonar del repositorio y compilación
+### Clonar del repositorio y compilación
 
 En este ejemplo práctico, voy a hacer uso de la consola. Y tomando la información de la wiki, vemos que tenemos 3 formas de clonar el repositorio.
 
@@ -73,5 +74,31 @@ git clone https://github.com/azerothcore/azerothcore-wotlk.git azerothcore
 ```
 
 </details>
+<br>
 
-<p>Una vez realizada la clonación, comienza la compilación.</p>
+Una vez realizada la clonación, comienza la compilación.
+
+A continuación, vamos a ingresar en el directorio llamado AzerothCore, y dentro de él, crear una carpeta llamada build y luego, ingresar dentro de la carpeta. Para eso, podemos ejecutar los pasos por separado. O podemos hacerlo todo en una línea, le dejo ambos métodos, para que ustedes elijan.
+
+<details>
+<summary>Por separado</summary>
+
+```sh
+cd azerothcore
+mkdir build
+cd build
+```
+
+</details>
+
+<details>
+<summary>Todo junto</summary>
+
+```sh
+cd azerothcore && mkdir build && cd build
+```
+
+</details>
+<br>
+
+Ambos métodos son válidos, y dependiendo de donde nos encontramos, podremos obtener resultados distintos. Les recomiendo siempre revisar donde están parados, haciendo uso del comando `pwd`. O incluso, para asegurarse, si están usando el usuario `wow` pueden ir al `home` del usuario, escribiendo `cd $HOME`. $HOME es una variable de entorno, que apunta a la carpeta persona del usuario que tiene la sección activa, en este caso, `wow`.

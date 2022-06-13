@@ -39,9 +39,14 @@ sudo apt-get update && sudo apt-get install git cmake make gcc g++ clang default
 
 </details>
 
+
 ### Clonar del repositorio y compilación
 
 En este ejemplo práctico, voy a hacer uso de la consola. Y tomando la información de la wiki, vemos que tenemos 3 formas de clonar el repositorio.
+
+Antes de continuar, tendríamos que crear un usuario donde realizamos la instalación. Lo haremos, mediante el comando `adduser`. Siendo root, o con permisos de sudo, creamos un usuario llamado wow, por ejemplo, de la siguiente manera: `adduser wow`. Luego de darle entender, nos pedirá una contraseña, la cual tendremos que introducir 2 veces y otros datos personales, los cuales realmente no tienen demasiada importancia, podemos dejarlos vacío, pulsando varias veces enter, y luego, al final, confirmamos escribiendo Y.
+
+Una vez, hayamos creado el usuario, podemos iniciar sección con él, o podemos cambiar de usuario, escribiendo `su – wow`. El cual, si estamos con el usuario root, no nos pedirá la contraseña, pero si estamos con otro usuario sí. Estando dentro del `/home` del usuario, que sería: `/home/wow` (lo cual podemos comprobar con la ayuda del comando `pwd`, disponemos de clonar el repositorio dentro del home de dicho usuario (wow). El home, es la carpeta persona del usuario, podríamos hacerlo en otro lugar también, pero a efectos prácticos, lo vamos a hacer dentro del home del usuario.
 
 <details>
 <summary>Rama master con el historial completo (tamaño más pequeño - recomendado):</summary>
@@ -69,3 +74,5 @@ git clone https://github.com/azerothcore/azerothcore-wotlk.git azerothcore
 ```
 
 </details>
+
+Una vez realizada la clonación, comienza la compilación.

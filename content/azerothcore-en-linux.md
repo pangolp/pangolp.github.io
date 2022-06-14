@@ -7,6 +7,8 @@ category: Emuladores de World of Warcraft
 tags: azerothcore, server335, linux
 repository: https://github.com/azerothcore/azerothcore-wotlk
 
+![azerothcore](https://user-images.githubusercontent.com/2810187/173671588-0e5e8bce-992f-401a-97e0-96659b92bef4.png)
+
 ### ¿Qué necesito instalar?
 
 Antes que nada, debemos saber, que al día de la fecha: Domingo 12 de Junio del 2022, aun el emulador, no soporta versiones de OpenSSL 3.x. Por lo que no podemos usar la versión de Ubuntu 22.04, dado que esta, por defecto en sus repositorios, viene con dicha versión de OpenSSL. Sin embargo, podríamos usar esta versión de Ubuntu, es decir, la 22.04, desinstalar OpenSSL que viene por defecto / no instarlo, y luego descargar una versión del código de la versión 1.1.x, y compilarlo nosotros mismo. Mi recomendación, utilicen una versión de Ubuntu anterior, como puede ser la versión 21.10 (la cual no esta tan desactualizada).

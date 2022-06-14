@@ -113,7 +113,6 @@ cmake ../ -DCMAKE_INSTALL_PREFIX=$HOME/azeroth-server/ -DCMAKE_C_COMPILER=/usr/b
 ```
 
 </details>
-<br>
 
 <details>
 <summary>Ejemplo de lo que obtenemos al usar el comando anterior</summary>

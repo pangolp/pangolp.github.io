@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El blog de Pango | Stevej - Cómo probar un Pull Request</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Cómo probar un Pull Request" property="og:title">
+    <meta content="En este post, hablamos sobre cómo realizar pruebas de las solicitudes de cambios (PR – Pull request), como también así, de la importancia que la misma tiene para cualquier proyecto open source. Cualquier comunidad de código libre, que acepte peticiones de cambios de personas ajenas al proyecto, tiene esta herramienta a disposición." property="og:description">
+    <meta property="og:tags" content="azerothcore, github, pullrequest, testing">
+    <meta content="https://pangolp.github.io" property="og:url">
+    <meta content="https://pangolp.github.io/theme/img/logo.png" property="og:image">
+    <meta content="#A72C2C" data-react-helmet="true" name="theme-color">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://pangolp.github.io/theme/css/code.min.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://pangolp.github.io/"><i class="fa-solid fa-spinner"></i> El blog de Pango | Stevej</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://pangolp.github.io/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.azerothcore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> AzerothCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wow-cms.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> BlizzCMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.trinitycore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> TrinityCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.chromiecraft.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> ChromieCraft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://linuxgsm.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> LinuxGSM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col my-3">
+            <h2><a href="https://pangolp.github.io/como-probar-un-pull-request.html" rel="bookmark" title="Permalink to Cómo probar un Pull Request">Cómo probar un Pull Request</a></h2>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> Thu 10 June 2021 - <strong>Categoria:</strong> Github</div>
+            <div><i class="fas fa-tags"></i>  <a href="https://twitter.com/hashtag/azerothcore" target="_blank">#azerothcore</a> <a href="https://twitter.com/hashtag/github" target="_blank">#github</a> <a href="https://twitter.com/hashtag/pullrequest" target="_blank">#pullrequest</a> <a href="https://twitter.com/hashtag/testing" target="_blank">#testing</a></div>
+            <div></div>
+            <div class="my-3"><h3>Introducción</h3>
+<p>En AzerothCore nos preocupamos por la calidad y la estabilidad del juego. Por ello, <strong>no enviamos los cambios directamente a la rama maestra (master)</strong>. En su lugar, cada vez que introducimos un nuevo cambio, creamos un nuevo <a href="https://help.github.com/articles/about-pull-requests/" target="_blank">Pull Request</a> (a menudo acortado en PR). Esto nos permite <strong>revisar y probar</strong> adecuadamente cualquier cambio antes de que llegue a los entornos de producción. Todos los que pueden instalar AzerothCore también pueden contribuir probando los PR. Esta guía explicará cómo hacerlo. Cuantos más usuarios nos ayuden a probar los PRs, mejor será nuestra actividad de desarrollo en términos de velocidad y calidad.</p>
+<h3>¿Qué PRs necesitan ser probados?</h3>
+<p>Etiquetamos como <a href="https://github.com/azerothcore/azerothcore-wotlk/pulls?q=is%3Apr+is%3Aopen+label%3A%22Waiting+to+be+tested%22" target="_blank">Esperando ser probado</a> a todos los PRs que ya han sido completados por el autor y han tenido su código revisado. Al hacer clic en la etiqueta anterior, se mostrará la lista de todos los PR que deben probarse para llegar a la rama maestra (master). <strong>Es importante que la comunidad ayude a testear, porque si los desarrolladores suben un cambio, y el mismo esta mucho tiempo sin revisarse, pueden perder un poco la motivación por seguir colaborando.</strong></p>
+<h3>¿Qué necesito antes de probar un PR?</h3>
+<p>Es necesario:</p>
+<ul>
+<li>Tener AzerothCore instalado en tu sistema (ver <a href="https://www.azerothcore.org/wiki/Installation" target="_blank">Instalación</a>).</li>
+<li>Tener una cuenta en GitHub, puedes <a href="https://github.com/join" target="_blank">registrar una aquí</a> de forma gratuita.</li>
+</ul>
+<h3>¿Y si el PR sólo tiene cambios en la base de datos?</h3>
+<p>Algunos PRs sólo tienen cambios en la base de datos (sin cambios en C++). Si ese es el caso, hay un procedimiento <a href="https://www.azerothcore.org/wiki/How-to-test-DB-only-changes" target="_blank">simplificado para probar esos cambios</a>. Si no estás seguro, sigue leyendo aquí y haz la prueba tradicional de PR que funcionará para todo tipo de PRs.</p>
+<h3>Pasos para probar un pull request</h3>
+<ul>
+<li>Debes tener un fork del repositorio y haberlo clonado.</li>
+</ul>
+<p><img alt="fork" src="https://user-images.githubusercontent.com/2810187/121466203-67901680-c98d-11eb-9257-1f8fcc439cfc.png"></p>
+<ul>
+<li>El siguiente paso, es diferente, si eres <strong>colaborador</strong> a si solo vas a ser <strong>tester</strong>. Si eres colaborador, debes añadir una referencia a AzerothCore, llamada comúnmente como <strong>upstream</strong>. Dado que al clonar el repositorio, tu repositorio remoto es el origin. Si solo vas a realizar pruebas, no necesitas hacer el paso anterior. En mi caso, yo a haces hago algún que otro PR, como también intento testear los que hacen otros colaboradores. Por lo que debo tener ambas referencias, como en la imagen que se muestra a continuación.</li>
+</ul>
+<p><img alt="remotes" src="https://user-images.githubusercontent.com/2810187/121466589-0d438580-c98e-11eb-8fb9-e796cc884156.png"></p>
+<div class="highlight"><pre><span></span><code>git remote add upstream https://github.com/azerothcore/azerothcore-wotlk
+</code></pre></div>
+
+<p><strong>Origin</strong>, para un colaborador, siempre es el repositorio que él puede modificar, en cambio <strong>upstream</strong>, es de quien descarga los cambios y actualiza. Porque algo importante, es que el emulador, debe estar siempre lo más actualizado posible. De esa forma, yo puedo realizar un <strong>git push</strong> a origin, pero no podría hacerlo nunca a <strong>upstream</strong> porque ese repositorio no me pertenece. Si bien, estamos un poco mezclando los 2 artículos, el de crear un PR y el de testear un PR, es importante que se entienda la diferencia entre solo tester y tester y colaborar.</p>
+<p>Ahora, lo que necesitamos hacer, es posicionarnos siempre en la rama <strong>master</strong> y crear una nueva rama, para poder descargar los cambios del pull request que queremos probar. Por ejemplo, vamos a tomar como referencia el siguiente pull request: <a href="https://github.com/azerothcore/azerothcore-wotlk/pull/5949" target="_blank">PR 5949</a>. De la URL del PR, obtenemos el id, en este caso el <strong>5949</strong></p>
+<ul>
+<li>Nos aseguramos de estar en master</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git checkout master
+</code></pre></div>
+
+<ul>
+<li>Verificamos de tener todo actualizado siempre</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git pull upstream master
+</code></pre></div>
+
+<ul>
+<li>Creamos una rama nueva, por convención</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git checkout -b pr-5949
+</code></pre></div>
+
+<ul>
+<li>Descargamos los cambios del PR a esa rama</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git pull upstream pull/5949/head
+</code></pre></div>
+
+<p><strong>Nota:</strong> si no tienen upstream, porque no son colaboradores, utilicen origin en su lugar. En la documentación de AzerothCore, utilizan ese método, la idea de este artículo, es mostrar ambos puntos al mismo tiempo, el de colaborador y el de tester.</p>
+<p>En el caso, de que el PR agregue o elimine archivos, se debe utilizar el CMAKE para que la solución de visual studio o la compilación en Linux, reconozca esos archivos que se agregaron o se eliminaron. Si no ocurre eso, solamente deberíamos de compilar el emulador, y verificar los temas que se suelen detallar en el pull request. También siempre es bueno, adjuntar alguna imagen (se puede arrastrar hasta la caja de texto, y en unos pocos segundos se sube).</p>
+<p>De mas esta decirles, que si llegaron hasta este punto y tienen dudas, pueden hacerme consultas por discord, siempre estoy dispuesto a ayudar a las personas que quieran ser testers o contribuidores de AzerothCore y que por algún motivo, no se animen a dar el primer paso. Pueden escribir en el chat, o incluso nombrarme, o enviarme un mensaje privado. Siempre está dispuesto a ayudar a aquellos que quieran colaborar.</p>
+<p>En la wiki de AzerothCore, tienen otros ejemplos y también un poco más de documentación, por lo que les dejo el enlace para que lo lean.</p>
+<p>Fuente: <a href="https://www.azerothcore.org/wiki/How-to-test-a-PR" target="_blank">Articulo original de la wiki de AzerothCore</a></p></div>
+        </div>
+    </div>
+</div>
+    <footer id="footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Desarrollado con éxito por <a href="https://getpelican.com/" target="_blank">Pelican</a>, que se beneficia de las características de <a href="https://www.python.org/" target="_blank">Python</a>.</h3>
+                    <h4 class="text-center">Tambien utilizamos <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> y mucho amor</h4>
+                    <h5 class="text-center"><i class="fas fa-copyright"></i> 2022 - El blog de Pango | Stevej</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+</body>
+</html>

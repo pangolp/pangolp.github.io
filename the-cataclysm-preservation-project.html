@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El blog de Pango | Stevej - The Cataclysm Preservation Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="The Cataclysm Preservation Project" property="og:title">
+    <meta content="En esta ocasión, les cuento mi experiencia compilando el emulador público de Cataclismo." property="og:description">
+    <meta property="og:tags" content="trinitycore, emuladores, cataclismo">
+    <meta content="https://pangolp.github.io" property="og:url">
+    <meta content="https://pangolp.github.io/theme/img/logo.png" property="og:image">
+    <meta content="#A72C2C" data-react-helmet="true" name="theme-color">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://pangolp.github.io/theme/css/code.min.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://pangolp.github.io/"><i class="fa-solid fa-spinner"></i> El blog de Pango | Stevej</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://pangolp.github.io/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.azerothcore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> AzerothCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wow-cms.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> BlizzCMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.trinitycore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> TrinityCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.chromiecraft.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> ChromieCraft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://linuxgsm.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> LinuxGSM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col my-3">
+            <h2><a href="https://pangolp.github.io/the-cataclysm-preservation-project.html" rel="bookmark" title="Permalink to The Cataclysm Preservation Project">The Cataclysm Preservation Project</a></h2>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> Wed 25 May 2022 - <strong>Categoria:</strong> Emuladores</div>
+            <div><i class="fas fa-tags"></i>  <a href="https://twitter.com/hashtag/trinitycore" target="_blank">#trinitycore</a> <a href="https://twitter.com/hashtag/emuladores" target="_blank">#emuladores</a> <a href="https://twitter.com/hashtag/cataclismo" target="_blank">#cataclismo</a></div>
+            <div><i class="fab fa-github"></i> <a href="https://github.com/The-Cataclysm-Preservation-Project/" target="_blank">https://github.com/The-Cataclysm-Preservation-Project/</a> </div>
+            <div class="my-3"><p><img alt="cata" src="https://images7.alphacoders.com/335/335570.jpg"></p>
+<h1>The Cataclysm Preservation Project</h1>
+<p><img alt="WoWScrnShot_052522_071920" src="https://user-images.githubusercontent.com/2810187/170356891-c4094035-7bf8-45c8-b72f-f80ae66e0127.jpg"></p>
+<p>Hola, buenas tardes. No es la primera vez que realmente trabajo con un source de cataclismo, pero si es cierto, que es la primera vez que lo hago con un código fuente público. Si bien el repositorio lo conozco hace mucho tiempo, no había tenido posibilidad de probarlo. Porque cuando quise hacerlo, AzerothCore, todavía usaba ACE y no tenía boots, por lo que yo no tenía instala la dependencia, y en Linux, pedía por aquel entonces, una dependencia que no estaba disponible para la versión que yo usaba, y realmente antes no era de compilar librerías. Siempre fiel al <code>apt install</code>.</p>
+<p>Mi intención era probar, si podía compilar el emulador, descargando el código fuente primero en Windows y luego por supuesto hacer lo propio en Linux. En Windows de momento, no he tenido problemas. Clone el repositorio, utilice el cmake para crear la solución, abrí el visual studio y luego de un par de minutos, no recuerdo bien cuantos, tenía los ejecutables, junto con los extractores. <strong>Nota:</strong> hago hincapié en el tema de los extractores, porque muchas veces los repositorios públicos y privados que están publicados, no mantiene el código de las librerías, solamente hacen scripts y modificaciones SQL, del resto no tocan nada.</p>
+<p>Luego venia la incógnita de donde iba a conseguir un cliente blizzlike, sin ningún tipo de parche o modificación. Porque realmente quería extraer todo la información, de la manera más limpia posible. Termine haciendo la extracción de un cliente que tenia de un servidor, pero observe bastantes mensajes de errores y de otros tipos, por lo que en un futuro, intentare volver a extraerlos, luego cuando se termine de descargar el nuevo cliente.</p>
+<h3>Cliente</h3>
+<p>Respecto al cliente, tenemos que tener en cuenta, que no nos sirven los clientes que hayamos usado anteriormente, porque este repositorio utiliza bnet, y entonces ese sistema, requiere parchear el cliente oficial, como lo explican en la siguiente guía en inglés: <a href="https://github.com/The-Cataclysm-Preservation-Project/TrinityCore/wiki/Setup-and-troubleshooting-for-connecting">guía</a>. Mi consejo es, leer bien la guía, porque en un momento, posiblemente por las ganas de verlo funcionando, me saltie un paso, y varias veces tuve que reconstruir todo el tema del cliente, porque se dañan los archivos, así que leerlo con tranquilidad.</p>
+<h3>Dentro del juego.</h3>
+<p><img alt="WoWScrnShot_052522_064824" src="https://user-images.githubusercontent.com/2810187/170356802-e32dba9e-8b9c-4e3b-9670-84c7be18a611.jpg"></p>
+<p>Una vez logre tener el servidor funcionando y poder hacer ingresar, me cree un druida wargen porque lo que siempre queremos ver, son las zonas de inicio de las razas nuevas, dado que quizás es parte del contenido que a la enorme mayoría que no jugamos la expansión, nos pueda llamar la atención. Así que me dispuse a hacer misiones, encontré que faltan muchas traducciones al español (aunque eso es normal) pero no me encontré ningún bug de momento, en lo que yo llevo jugando (aclaro que no termine de hacer todas las misiones)</p>
+<p>Espero que los que les comente en este post, les sirva, y si es necesario, armaremos otros post, o incluso, intentamos hacer algún video en el canal, donde compilaremos el emulador y veremos algunas cosas (sin entrar en detalles en los derecho de autor, que son las cosas que la comunidad no comparte, y por supuesto que yo tampoco puedo hacerlo) para evitar problemas. Recuerden que todos los videos, son de carácter educativos. Dado que no tengo un servidor, ni trabajo para ninguno de los que se encuentran en línea en este momento.</p></div>
+        </div>
+    </div>
+</div>
+    <footer id="footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Desarrollado con éxito por <a href="https://getpelican.com/" target="_blank">Pelican</a>, que se beneficia de las características de <a href="https://www.python.org/" target="_blank">Python</a>.</h3>
+                    <h4 class="text-center">Tambien utilizamos <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> y mucho amor</h4>
+                    <h5 class="text-center"><i class="fas fa-copyright"></i> 2022 - El blog de Pango | Stevej</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+</body>
+</html>

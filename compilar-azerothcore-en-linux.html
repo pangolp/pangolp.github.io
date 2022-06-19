@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El blog de Pango | Stevej - Compilar AzerothCore en Linux</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Compilar AzerothCore en Linux" property="og:title">
+    <meta content="En esta guía, simplemente queremos mostrar una forma diferente de compilar AzerothCore desde cero, paso a paso, en Debian y Ubuntu. Siempre recuerden revisar la documentación oficial, la cual se encuentra en la wiki de la comunidad." property="og:description">
+    <meta property="og:tags" content="azerothcore, server335, linux">
+    <meta content="https://pangolp.github.io" property="og:url">
+    <meta content="https://pangolp.github.io/theme/img/logo.png" property="og:image">
+    <meta content="#A72C2C" data-react-helmet="true" name="theme-color">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://pangolp.github.io/theme/css/code.min.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://pangolp.github.io/"><i class="fa-solid fa-spinner"></i> El blog de Pango | Stevej</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://pangolp.github.io/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.azerothcore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> AzerothCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wow-cms.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> BlizzCMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.trinitycore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> TrinityCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.chromiecraft.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> ChromieCraft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://linuxgsm.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> LinuxGSM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col my-3">
+            <h2><a href="https://pangolp.github.io/compilar-azerothcore-en-linux.html" rel="bookmark" title="Permalink to Compilar AzerothCore en Linux">Compilar AzerothCore en Linux</a></h2>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> Sun 12 June 2022 - <strong>Categoria:</strong> Emuladores de World of Warcraft</div>
+            <div><i class="fas fa-tags"></i>  <a href="https://twitter.com/hashtag/azerothcore" target="_blank">#azerothcore</a> <a href="https://twitter.com/hashtag/server335" target="_blank">#server335</a> <a href="https://twitter.com/hashtag/linux" target="_blank">#linux</a></div>
+            <div><i class="fab fa-github"></i> <a href="https://github.com/azerothcore/azerothcore-wotlk" target="_blank">https://github.com/azerothcore/azerothcore-wotlk</a> </div>
+            <div class="my-3"><p><img alt="azerothcore" src="https://user-images.githubusercontent.com/2810187/173671588-0e5e8bce-992f-401a-97e0-96659b92bef4.png"></p>
+<h3>¿Qué necesito instalar?</h3>
+<p>Antes que nada, debemos saber, que al día de la fecha: Domingo 12 de Junio del 2022, aun el emulador, no soporta versiones de OpenSSL 3.x. Por lo que no podemos usar la versión de Ubuntu 22.04, dado que esta, por defecto en sus repositorios, viene con dicha versión de OpenSSL. Sin embargo, podríamos usar esta versión de Ubuntu, es decir, la 22.04, desinstalar OpenSSL que viene por defecto / no instarlo, y luego descargar una versión del código de la versión 1.1.x, y compilarlo nosotros mismo. Mi recomendación, utilicen una versión de Ubuntu anterior, como puede ser la versión 21.10 (la cual no esta tan desactualizada).</p>
+<details>
+<summary>Ubuntu con MariaDB 10.x</summary>
+AzerothCore sólo es compatible con las versiones 10.5 y 10.6 de MariaDB.
+
+
+<div class="highlight"><pre><span></span><code>sudo apt update <span class="o">&amp;&amp;</span> sudo apt full-upgrade -y <span class="o">&amp;&amp;</span> sudo apt install git cmake make gcc g++ clang libssl-dev libbz2-dev libreadline-dev libncurses-dev libboost-all-dev mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat -y
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Ubuntu con MySQL 8.x</summary>
+
+
+<div class="highlight"><pre><span></span><code>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install git cmake make gcc g++ clang libmysqlclient-dev libssl-dev libbz2-dev libreadline-dev libncurses-dev mysql-server libboost-all-dev -y
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Debian 10 / Debian 11</summary>
+
+
+<div class="highlight"><pre><span></span><code>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install git cmake make gcc g++ clang default-libmysqlclient-dev libssl-dev libbz2-dev libreadline-dev libncurses-dev mariadb-server libboost-all-dev -y
+</code></pre></div>
+
+
+
+</details>
+<p><br></p>
+<h3>Clonar del repositorio y compilación</h3>
+<p>En este ejemplo práctico, voy a hacer uso de la consola. Y tomando la información de la wiki, vemos que tenemos 3 formas de clonar el repositorio.</p>
+<p>Antes de continuar, tendríamos que crear un usuario donde realizamos la instalación. Lo haremos, mediante el comando <code>adduser</code>. Siendo root, o con permisos de sudo, creamos un usuario llamado wow, por ejemplo, de la siguiente manera: <code>adduser wow</code>. Luego de darle entender, nos pedirá una contraseña, la cual tendremos que introducir 2 veces y otros datos personales, los cuales realmente no tienen demasiada importancia, podemos dejarlos vacío, pulsando varias veces enter, y luego, al final, confirmamos escribiendo Y.</p>
+<p>Una vez, hayamos creado el usuario, podemos iniciar sección con él, o podemos cambiar de usuario, escribiendo <code>su – wow</code>. El cual, si estamos con el usuario root, no nos pedirá la contraseña, pero si estamos con otro usuario sí. Estando dentro del <code>/home</code> del usuario, que sería: <code>/home/wow</code> (lo cual podemos comprobar con la ayuda del comando <code>pwd</code>, disponemos de clonar el repositorio dentro del home de dicho usuario (wow). El home, es la carpeta persona del usuario, podríamos hacerlo en otro lugar también, pero a efectos prácticos, lo vamos a hacer dentro del home del usuario.</p>
+<details>
+<summary>Rama master con el historial completo (tamaño más pequeño - recomendado):</summary>
+
+
+<div class="highlight"><pre><span></span><code>git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch azerothcore
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Rama maestra sin historial previo (tamaño más pequeño):</summary>
+
+
+<div class="highlight"><pre><span></span><code>git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch azerothcore --depth <span class="m">1</span>
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Todas las ramas y todo el historial:</summary>
+
+
+<div class="highlight"><pre><span></span><code>git clone https://github.com/azerothcore/azerothcore-wotlk.git azerothcore
+</code></pre></div>
+
+
+
+</details>
+<p><br>
+Una vez realizada la clonación, comienza la compilación.</p>
+<p>A continuación, vamos a ingresar en el directorio llamado AzerothCore, y dentro de él, crear una carpeta llamada build y luego, ingresar dentro de la carpeta. Para eso, podemos ejecutar los pasos por separado. O podemos hacerlo todo en una línea, le dejo ambos métodos, para que ustedes elijan.</p>
+<details>
+<summary>Por separado</summary>
+
+
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> azerothcore
+mkdir build
+<span class="nb">cd</span> build
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Todo junto</summary>
+
+
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> azerothcore <span class="o">&amp;&amp;</span> mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+</code></pre></div>
+
+
+
+</details>
+<p><br>
+Ambos métodos son válidos, y dependiendo de donde nos encontramos, podremos obtener resultados distintos. Les recomiendo siempre revisar donde están parados, haciendo uso del comando <code>pwd</code>. O incluso, para asegurarse, si están usando el usuario <code>wow</code> pueden ir al <code>home</code> del usuario, escribiendo <code>cd $HOME</code>. $HOME es una variable de entorno, que apunta a la carpeta personal del usuario que tiene la sección activa, en este caso, <code>wow</code>.</p>
+<p>Es hora de ponerse a compilar…</p>
+<p>Para eso, primero debemos construir la solución de lo que vamos a compilar, con cmake. El comando cmake, tiene varios parámetros, por lo que vamos a publicar a continuación, es una forma de hacerlo, pero no es la única. Revisen siempre la guía del comando, para obtener más información sobre el mismo, y los diferentes parámetros que tiene.</p>
+<details>
+<summary>Cmake para construir la solución</summary>
+
+
+<div class="highlight"><pre><span></span><code>cmake ../ -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/azeroth-server/ -DCMAKE_C_COMPILER<span class="o">=</span>/usr/bin/clang -DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/bin/clang++ -DWITH_WARNINGS<span class="o">=</span><span class="m">1</span> -DTOOLS<span class="o">=</span><span class="m">0</span> -DSCRIPTS<span class="o">=</span>static -DMODULES<span class="o">=</span>static
+</code></pre></div>
+
+
+
+</details>
+
+<details>
+<summary>Ejemplo de lo que obtenemos al usar el comando anterior</summary>
+
+
+<div class="highlight"><pre><span></span><code>-- CMake version: <span class="m">3</span>.18.4
+-- Running cmake hook: AFTER_LOAD_CONF
+-- No hooks registered <span class="k">for</span> AFTER_LOAD_CONF
+-- Enabled С++20 standard
+-- Detected <span class="m">64</span>-bit platform
+-- UNIX: Using jemalloc
+-- UNIX: Using default configuration directory
+-- UNIX: Using default library directory
+-- UNIX: Configuring uninstall target
+-- UNIX: Created uninstall target
+-- UNIX: Detected compiler: /usr/bin/clang
+-- Clang: Minimum version required is <span class="m">10</span>.0.0, found <span class="m">11</span>.0.1 - ok!
+-- Clang: All warnings enabled
+-- Running cmake hook: AFTER_LOAD_CMAKE_MODULES
+-- No hooks registered <span class="k">for</span> AFTER_LOAD_CMAKE_MODULES
+-- Using mysql-config: /usr/bin/mysql_config
+-- Found MySQL library: /usr/lib/x86_64-linux-gnu/libmariadb.so
+-- Found MySQL headers: /usr/include/mariadb
+-- Found MySQL executable: /usr/bin/mysql
+-- Found git binary : /usr/bin/git
+
+* AzerothCore revision            : b004f9883e12 <span class="m">2022</span>-06-04 <span class="m">00</span>:26:02 +0000 <span class="o">(</span>master branch<span class="o">)</span>
+* AzerothCore buildtype           : RelWithDebInfo
+
+* Install core to                 : /home/wow/azeroth-server
+* Install libraries to            : /home/wow/azeroth-server/lib
+* Install configs to              : /home/wow/azeroth-server/etc
+
+* Build applications              : Yes <span class="o">(</span>all<span class="o">)</span>
+* Build tools                     : No
+* Build with scripts              : Yes <span class="o">(</span>static<span class="o">)</span>
+* Build with modules              : Yes <span class="o">(</span>static<span class="o">)</span>
+* Build unit tests                : No  <span class="o">(</span>default<span class="o">)</span>
+* Build core w/PCH                : Yes <span class="o">(</span>default<span class="o">)</span>
+* Build scripts w/PCH             : Yes <span class="o">(</span>default<span class="o">)</span>
+* Show all warnings               : Yes
+* Use coreside debug              : No  <span class="o">(</span>default<span class="o">)</span>
+* Use unix gperftools             : No  <span class="o">(</span>default<span class="o">)</span>
+* Use GIT revision <span class="nb">hash</span>           : Yes <span class="o">(</span>default<span class="o">)</span>
+* Enable vmap DisableMgr checks   : Yes <span class="o">(</span>default<span class="o">)</span>
+* Show <span class="nb">source</span> tree                : No <span class="o">(</span>For UNIX default<span class="o">)</span>
+
+-- Found Readline library: /usr/lib/x86_64-linux-gnu/libreadline.so
+-- Include dir is: /usr/include
+-- Running cmake hook: BEFORE_SRC_LOAD
+-- No hooks registered <span class="k">for</span> BEFORE_SRC_LOAD
+
+* Apps build list <span class="o">(</span>all<span class="o">)</span>:
+  <span class="p">|</span>
+  +- apps
+  <span class="p">|</span>   +- authserver
+  <span class="p">|</span>   +- worldserver
+  <span class="p">|</span>
+
+-- Running cmake hook: BEFORE_GAME_LIBRARY
+-- No hooks registered <span class="k">for</span> BEFORE_GAME_LIBRARY
+-- Running cmake hook: AFTER_GAME_LIBRARY
+-- No hooks registered <span class="k">for</span> AFTER_GAME_LIBRARY
+-- Running cmake hook: BEFORE_SCRIPTS_LIBRARY
+-- No hooks registered <span class="k">for</span> BEFORE_SCRIPTS_LIBRARY
+* Script configuration <span class="o">(</span>static<span class="o">)</span>:
+  <span class="p">|</span>
+  +- worldserver
+  <span class="p">|</span>   +- Commands
+  <span class="p">|</span>   +- Custom
+  <span class="p">|</span>   +- EasternKingdoms
+  <span class="p">|</span>   +- Events
+  <span class="p">|</span>   +- Kalimdor
+  <span class="p">|</span>   +- Northrend
+  <span class="p">|</span>   +- OutdoorPvP
+  <span class="p">|</span>   +- Outland
+  <span class="p">|</span>   +- Pet
+  <span class="p">|</span>   +- Spells
+  <span class="p">|</span>   +- World
+  <span class="p">|</span>
+
+
+* Modules configuration <span class="o">(</span>static<span class="o">)</span>:
+  <span class="p">|</span>
+
+-- * Modules config list:
+  <span class="p">|</span>
+
+-- Running cmake hook: AFTER_SRC_LOAD
+-- No hooks registered <span class="k">for</span> AFTER_SRC_LOAD
+-- Configuring <span class="k">done</span>
+-- Generating <span class="k">done</span>
+-- Build files have been written to: /home/wow/azerothcore/build
+</code></pre></div>
+
+
+
+</details>
+<p><br>
+Luego, de hacer uso del comando, podemos empezar a compilar, pero para ello, necesitamos saber cuántos núcleos, tenemos disponibles. Eso podemos hacerlo, con el comando <code>nproc –all</code>. Básicamente, lo que nos va a aparecer en pantalla, es la cantidad de núcleos, que podemos usar. A efectos prácticos, voy a usar 6 núcleos. Por lo que el comando, que debo usar para compilar es:</p>
+<details>
+<summary>Comando make</summary>
+
+
+<div class="highlight"><pre><span></span><code>make -j <span class="m">6</span> <span class="o">&amp;&amp;</span> make install
+</code></pre></div>
+
+
+
+</details>
+<p><br>
+Al finalizar la compilación, obtendrán un resultado como este</p>
+<details>
+<summary>Resultado</summary>
+
+
+<div class="highlight"><pre><span></span><code><span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target argon2
+<span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target fmt
+<span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target Detour
+<span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target sfmt
+<span class="o">[</span>  <span class="m">5</span>%<span class="o">]</span> Built target g3dlib
+<span class="o">[</span>  <span class="m">6</span>%<span class="o">]</span> Built target gsoap
+<span class="o">[</span>  <span class="m">7</span>%<span class="o">]</span> Built target Recast
+<span class="o">[</span> <span class="m">10</span>%<span class="o">]</span> Built target jemalloc
+<span class="o">[</span> <span class="m">16</span>%<span class="o">]</span> Built target common
+<span class="o">[</span> <span class="m">18</span>%<span class="o">]</span> Built target database
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target shared
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target revision.h
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target modules
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target authserver
+<span class="o">[</span> <span class="m">45</span>%<span class="o">]</span> Built target game
+<span class="o">[</span> <span class="m">99</span>%<span class="o">]</span> Built target scripts
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Built target worldserver
+<span class="o">[</span>  <span class="m">0</span>%<span class="o">]</span> Built target sfmt
+<span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target argon2
+<span class="o">[</span>  <span class="m">1</span>%<span class="o">]</span> Built target fmt
+<span class="o">[</span>  <span class="m">4</span>%<span class="o">]</span> Built target jemalloc
+<span class="o">[</span>  <span class="m">8</span>%<span class="o">]</span> Built target g3dlib
+<span class="o">[</span>  <span class="m">8</span>%<span class="o">]</span> Built target Detour
+<span class="o">[</span>  <span class="m">9</span>%<span class="o">]</span> Built target Recast
+<span class="o">[</span> <span class="m">10</span>%<span class="o">]</span> Built target gsoap
+<span class="o">[</span> <span class="m">16</span>%<span class="o">]</span> Built target common
+<span class="o">[</span> <span class="m">16</span>%<span class="o">]</span> Built target revision.h
+<span class="o">[</span> <span class="m">18</span>%<span class="o">]</span> Built target database
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target shared
+<span class="o">[</span> <span class="m">19</span>%<span class="o">]</span> Built target modules
+<span class="o">[</span> <span class="m">45</span>%<span class="o">]</span> Built target game
+<span class="o">[</span> <span class="m">99</span>%<span class="o">]</span> Built target scripts
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Built target worldserver
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span> Built target authserver
+Install the project...
+-- Install configuration: <span class="s2">&quot;RelWithDebInfo&quot;</span>
+-- Up-to-date: /home/wow/azeroth-server/etc/authserver.conf.dist
+-- Up-to-date: /home/wow/azeroth-server/etc/worldserver.conf.dist
+</code></pre></div>
+
+
+
+</details></div>
+        </div>
+    </div>
+</div>
+    <footer id="footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Desarrollado con éxito por <a href="https://getpelican.com/" target="_blank">Pelican</a>, que se beneficia de las características de <a href="https://www.python.org/" target="_blank">Python</a>.</h3>
+                    <h4 class="text-center">Tambien utilizamos <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> y mucho amor</h4>
+                    <h5 class="text-center"><i class="fas fa-copyright"></i> 2022 - El blog de Pango | Stevej</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+</body>
+</html>

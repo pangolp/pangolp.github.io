@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El blog de Pango | Stevej - mod-quest-status</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="mod-quest-status" property="og:title">
+    <meta content="Con este módulo, como GM, vas a poder tener una mejor información sobre las cadenas largas de misiones, y de esa forma, poder ayudar a la gente, cuando no sepa donde se quedó. Te permite crear macros mucho más chico, con cadenas grandes de misiones." property="og:description">
+    <meta property="og:tags" content="azerothcore, server335, mod-quest-status">
+    <meta content="https://pangolp.github.io" property="og:url">
+    <meta content="https://pangolp.github.io/theme/img/logo.png" property="og:image">
+    <meta content="#A72C2C" data-react-helmet="true" name="theme-color">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://pangolp.github.io/theme/css/code.min.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://pangolp.github.io/"><i class="fa-solid fa-spinner"></i> El blog de Pango | Stevej</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://pangolp.github.io/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.azerothcore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> AzerothCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wow-cms.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> BlizzCMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.trinitycore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> TrinityCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.chromiecraft.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> ChromieCraft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://linuxgsm.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> LinuxGSM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col my-3">
+            <h2><a href="https://pangolp.github.io/mod-quest-status.html" rel="bookmark" title="Permalink to mod-quest-status">mod-quest-status</a></h2>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> Thu 26 May 2022 - <strong>Categoria:</strong> Módulos</div>
+            <div><i class="fas fa-tags"></i>  <a href="https://twitter.com/hashtag/azerothcore" target="_blank">#azerothcore</a> <a href="https://twitter.com/hashtag/server335" target="_blank">#server335</a> <a href="https://twitter.com/hashtag/mod-quest-status" target="_blank">#mod-quest-status</a></div>
+            <div><i class="fab fa-github"></i> <a href="https://github.com/pangolp/mod-quest-status" target="_blank">https://github.com/pangolp/mod-quest-status</a> </div>
+            <div class="my-3"><h1>mod-quest-status</h1>
+<p>Cuando empecé con el tema del desarrollo, lo cual primero o en forma paralela, fui GM de un servidor. Me di cuenta, que muchas veces las personas abandonan misiones, porque se les hacen muy pesadas, o de repente, obtienen el nivel máximo y creen que esa cadena que estaban haciendo, ya no la necesitan más. En el caso de la 3.3.5ª, existen muchos ejemplos. Los cuales vamos a detallar a continuación.</p>
+<ul>
+<li>Caballeros de la Espada de Ébano</li>
+<li>Cruzada Argenta</li>
+<li>El Acuerdo del Reposo del Dragón</li>
+<li>El Kirin Tor</li>
+<li>Los Hijos de Hodir</li>
+</ul>
+<p>La mayoría de las facciones que nombre anteriormente, suelen tener varias misiones, repartidas por diferentes mapas. Mientras uno va subiendo de nivel, se va cruzando con misiones que le dan reputación con estas facciones. Pero cuando puede cruzarse a otro mapa o puede abandonar las misiones, generalmente lo hace. Y luego, cuando quiere retomarlas, no sabe en qué parte de la cadena se quedó. Es por eso que pregunte, ¿Cómo podíamos obtener información sobre el estado que tenía una misión? En otras palabras, saber si el jugador la había hecho o no. Y me hablaron del comando <strong>lookup quest</strong>.</p>
+<p>El comando por defecto, necesita como parámetro, es decir, luego de usar el comando, el nombre de la misión que queremos buscar. Y luego, podemos seleccionar a la persona, y saber si la completo o no, y en qué estado se encuentra la misma. Pero tenemos varios problemas con esto. <strong>Primero</strong> muchas misiones tienen el mismo nombre. <strong>Segundo</strong> tenemos que poner el nombre en inglés. <strong>Y tercero</strong>, el macro, que sería la forma más cómoda para poder usarlo, tiene un límite de 255 caracteres si no recuerdo mal.</p>
+<p>Dejo unas imágenes sobre el comando en la actualidad y del macro.</p>
+<p><img alt="macro" src="https://user-images.githubusercontent.com/2810187/170588896-79345b8f-18b9-41ad-a308-274fa59336a6.png"></p>
+<p><img alt="chat" src="https://user-images.githubusercontent.com/2810187/170588906-1967b636-1f87-4333-9e26-ba32bc488a9a.png"></p>
+<p>El macro original ocupa <strong>105 caracteres de un máximo de 255</strong>. Y claramente, solamente tengo 3 misiones. Pero a su vez, como se puede observar en el chat, cuando se usa. La primera misión esta 2 veces, porque existe una misión para la alianza y otra para la hora con el mismo nombre. Además, de que tenemos que ponerle el nombre en inglés. Y si bien, el título de la quest, puede ser más corto, eso podría hacer que traiga otras misiones, que realmente no tienen nada que ver con la cadena, y podemos llegar a confundirnos nosotros o confundir a la persona que estamos intentando ayudar.</p>
+<p>Ahora dejo fotos, de un macro con el comando que me da el modulo.</p>
+<p><img alt="comando_qs" src="https://user-images.githubusercontent.com/2810187/170588907-765af488-07f1-43df-8f00-e5d67724235e.png"></p>
+<p><img alt="comando_qs_chat" src="https://user-images.githubusercontent.com/2810187/170588909-0c8f29a3-25ee-4658-8c80-8a39161dd240.png"></p>
+<p>La misma función, por así decirlo, ahora ocupa <strong>39 de 255 caracteres disponibles</strong>, lo que hace que sea mucho más corto, por más que añada una quest mas, no superó los 50 caracteres. Eso me permite, poner muchas más misiones de las quest podría de la otra forma. Y a su vez, gano precisión, porque ahora tengo los IDS, entonces, puedo hacer un macro por facción, y de esa forma, tener una mejor respuesta, lo que hace que pueda asesorar mejor a la persona que está perdida.</p>
+<p><strong>Conclusión:</strong> Si se limita un poco el uso del macro, se podría establecer, para que el mismo jugador, pueda auto inspeccionarse, sin la ayuda de un maestro de juego, pero para eso, habría que limitar la cantidad de consultas, porque si varias personas se ponen a spamear el comando, podrían saturar el servidor. Haciendo que solamente realice una cierta cantidad de consultas por hora, se podría habilitar para todo el mundo.</p></div>
+        </div>
+    </div>
+</div>
+    <footer id="footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Desarrollado con éxito por <a href="https://getpelican.com/" target="_blank">Pelican</a>, que se beneficia de las características de <a href="https://www.python.org/" target="_blank">Python</a>.</h3>
+                    <h4 class="text-center">Tambien utilizamos <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> y mucho amor</h4>
+                    <h5 class="text-center"><i class="fas fa-copyright"></i> 2022 - El blog de Pango | Stevej</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+</body>
+</html>

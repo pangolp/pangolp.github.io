@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+.nav__top {
+    background: rgb(4, 57, 164);
+    font-family: "Open Sans", sans-serif;
+}
+
+.nav__top a {
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.nav__top a:hover {
+    color: rgba(255, 255, 255);
+}
+
+.nav__top a:visited {
+    color: rgba(255, 255, 255);
+}
+
+.nav__img {
+    max-height: 2.375rem;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+}
+
+#welcome {
+    background-color: #064CDB !important;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    min-height: 30rem;
+}
+
+#welcome h1 {
+    padding-top: 10rem;
+}
+
+body {
+    background: #f5f5f5;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+#footer {
+    color:rgb(255, 255, 255);
+    padding: 2rem 0;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+#content {
+    padding: 1rem 0;
+}
+
+.highlight {
+    font-family: 'consolas';
+    margin-left: 1rem;
+    padding-left: 1rem;
+    background: #EBEDEF;
+    border-radius: 3px;
+}
+
+.article__summary {
+    font-size: 1.2rem;
+}
+
+header {
+    background: #C2C4C3 !important;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.card {
+    border: 2px solid #000000;
+    border-radius: 30px;
+}

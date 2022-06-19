@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El blog de Pango | Stevej - mod-recruit-friend</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="mod-recruit-friend" property="og:title">
+    <meta content="Con este módulo, podrás reclutar un amigo ingame a través de un comando, y obtener todos los beneficios blizzlike del emulador. Compatible con el emulador de AzerothCore, pero quizás pueda ser adaptado para otros emuladores. También tiene un comando de reset sin costo alguno." property="og:description">
+    <meta property="og:tags" content="azerothcore, server335, mod-recruit-friend">
+    <meta content="https://pangolp.github.io" property="og:url">
+    <meta content="https://pangolp.github.io/theme/img/logo.png" property="og:image">
+    <meta content="#A72C2C" data-react-helmet="true" name="theme-color">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://pangolp.github.io/theme/css/code.min.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://pangolp.github.io/"><i class="fa-solid fa-spinner"></i> El blog de Pango | Stevej</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://pangolp.github.io/"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.azerothcore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> AzerothCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wow-cms.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> BlizzCMS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.trinitycore.org/" target="_blank"><i class="fa-solid fa-gamepad"></i> TrinityCore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.chromiecraft.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> ChromieCraft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://linuxgsm.com/" target="_blank"><i class="fa-solid fa-gamepad"></i> LinuxGSM</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col my-3">
+            <h2><a href="https://pangolp.github.io/mod-recruit-friend.html" rel="bookmark" title="Permalink to mod-recruit-friend">mod-recruit-friend</a></h2>
+            <div><i class="far fa-clock"></i> <strong>Publicado:</strong> Mon 07 June 2021 - <strong>Categoria:</strong> Módulos</div>
+            <div><i class="fas fa-tags"></i>  <a href="https://twitter.com/hashtag/azerothcore" target="_blank">#azerothcore</a> <a href="https://twitter.com/hashtag/server335" target="_blank">#server335</a> <a href="https://twitter.com/hashtag/mod-recruit-friend" target="_blank">#mod-recruit-friend</a></div>
+            <div><i class="fab fa-github"></i> <a href="https://github.com/pangolp/mod-recruit-friend" target="_blank">https://github.com/pangolp/mod-recruit-friend</a> </div>
+            <div class="my-3"><p><a href="https://www.youtube.com/watch?v=ko1F_fIbnJg" title="mod-recruit-friend"><img alt="mod-recruit-friend" src="https://user-images.githubusercontent.com/2810187/83866937-ef9a6b00-a6fe-11ea-9fd7-4cb3c0465bba.png"></a></p>
+<h1>Modulo: Reclutar un amigo.</h1>
+<h2>¿Para qué es el módulo?</h2>
+<p>El módulo permite a los jugadores reclutar a un amigo dentro del juego y obtener los beneficios del mismo.</p>
+<ul>
+<li>Experiencia de misión mejorada</li>
+<li>Mejora de la experiencia mediante la eliminación del npc</li>
+<li>Dale un nivel a un amigo, por cada nivel obtenido.</li>
+<li>Invoca a un amigo, una vez cada 60 minutos.</li>
+</ul>
+<p>Los comandos que se pueden utilizar son:</p>
+<div class="highlight"><pre><span></span><code><span class="na">.recruit</span> <span class="no">add</span> <span class="no">nombre_del_jugador_a_reclutar</span>
+<span class="na">.recruit</span> <span class="no">reset</span>
+</code></pre></div>
+
+<p><strong>Nota:</strong> Debes ingresar el nombre de tu compañero. Una vez ejecutado con éxito, aparecerá un mensaje en el chat, pidiéndote que desloguees y que vuelvas a ingresar. Es importante que salgas por completo del juego, no basta con salir del personaje, debes cerrar la cuenta y volver a abrirla. Dado que se modifica un valor dentro de la base de datos <code>auth.account</code> y la misma debe ser leída nuevamente.</p>
+<p>El comando reset, también te pedirá que salgas y vuelvas a ingresar, porque lo que hace, es simplemente resetear el valor y agregarle un 0, donde antes estaba el <code>account.id</code> de tu compañero. De esa forma, podrás volver a reclutar a otro amigo si es que el mismo no puede continuar jugando.</p>
+<p>Espero que te sirva y puedas disfrutarlo.</p></div>
+        </div>
+    </div>
+</div>
+    <footer id="footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center">Desarrollado con éxito por <a href="https://getpelican.com/" target="_blank">Pelican</a>, que se beneficia de las características de <a href="https://www.python.org/" target="_blank">Python</a>.</h3>
+                    <h4 class="text-center">Tambien utilizamos <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> y mucho amor</h4>
+                    <h5 class="text-center"><i class="fas fa-copyright"></i> 2022 - El blog de Pango | Stevej</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+    $(document).ready(function () {
+        $("table").attr("class", "table table-sm text-center");
+        $("thead tr").addClass("bg-dark text-white");
+        $("img").addClass("img-fluid mx-auto d-block");
+    });
+</script>
+</body>
+</html>
